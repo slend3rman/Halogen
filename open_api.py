@@ -19,7 +19,7 @@ def detectNumberPlate(fileName):
 
 	try:
 		api_response = api_instance.recognize_bytes(image_bytes, secret_key, country, recognize_vehicle=recognize_vehicle, state=state, return_image=return_image, topn=topn, prewarp=prewarp)
-		#pprint(api_response)
+		pprint(api_response)
 		jsonFormat =str(api_response)
 		jsonFormat = jsonFormat.replace('\'','"')
 		jsonFormat = jsonFormat.replace('None','"None"')
@@ -30,4 +30,4 @@ def detectNumberPlate(fileName):
 	except ApiException as e:
 		print "Exception when calling DefaultApi->recognize_bytes: %s\n" % e
 				
-detectNumberPlate("car.jpg")
+#detectNumberPlate("car-del.png")
