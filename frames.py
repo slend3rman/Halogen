@@ -13,7 +13,7 @@ def variance_of_laplacian(image):
 	# measure, which is simply the variance of the Laplacian
 	return cv2.Laplacian(image, cv2.CV_64F).var()
 
-def getFrames(directory,video):
+def getFrames(directory,video,obj):
 	os.chdir(directory)
 	os.system ('mkdir Outs')
 	os.system('ffmpeg -i ' + video + ' -vf crop=in_w:in_h/2:in_w:in_h/2,fps=2 Outs/output%d.png')
@@ -50,6 +50,8 @@ def getFrames(directory,video):
 		key = cv2.waitKey(0)"""
 	print("chose : " + toSend)
 	user = open_api.detectNumberPlate(toSend)
+	#traffic.putInTable(user)
+	obj.insertInTable(user)
 	email = user[2]
 	if(email not in sent):
 				#mail.sendEmail(email)
