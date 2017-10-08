@@ -26,7 +26,13 @@ def detectNumberPlate(fileName):
 		myDict = json.loads(jsonFormat)
 		#print(some)
 		#print('dic type is : '+ str(type(dic)))
-		print(myDict["results"][0]["candidates"][0]['plate'])
+		try:
+			nplate = myDict["results"][0]["candidates"][0]['plate']
+			import data
+			return data.doQuery(nplate)
+		except:
+			print("No number plate detected")
+		
 	except ApiException as e:
 		print "Exception when calling DefaultApi->recognize_bytes: %s\n" % e
 				

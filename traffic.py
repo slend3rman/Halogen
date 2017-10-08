@@ -36,6 +36,7 @@ class Window(QtGui.QMainWindow):
 		self.setGeometry(100,60,600,500)
 		self.setWindowTitle("Halogen Speedbreaker")
 		self.setWindowIcon(QtGui.QIcon('traffic.jpg'))
+		#self.setStyleSheet("background-image:url(car.jpg);")
 		self.home()
 		
 	def home(self):
@@ -51,7 +52,7 @@ class Window(QtGui.QMainWindow):
 		upload.resize(80,40)
 		upload.move(350,40)
 		
-		start = QtGui.QPushButton("start",self)
+		start = QtGui.QPushButton("tart",self)
 		start.clicked.connect(self.showVid)
 		
 		start.resize(80,40)
